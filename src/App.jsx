@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/" element={<AdminDashboard />} />
     </Routes>
   );
 }
