@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-
 import "../styles/ReportLost.css";
 
-function ReportLost({ setItems }) {
+function ReportFound({ setItems }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -24,7 +23,6 @@ function ReportLost({ setItems }) {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-
     if (file) {
       setImage(URL.createObjectURL(file));
     }
@@ -38,13 +36,11 @@ function ReportLost({ setItems }) {
       title: formData.title,
       category: formData.category,
       location: formData.location,
-      status: "Lost",
-      image:
-        image ||
-        "https://via.placeholder.com/300x200?text=No+Image",
+      status: "Found",
+      image: image || "https://via.placeholder.com/300x200?text=No+Image",
     };
 
-    setItems((prevItems) => [...prevItems, newItem]);
+    setItems((prev) => [...prev, newItem]);
 
     navigate("/home");
   };
@@ -56,16 +52,11 @@ function ReportLost({ setItems }) {
       <div className="report-container">
         <div className="report-card">
           <div className="report-header">
-            <h1>Report Lost Item</h1>
-            <p>
-              Help us locate and recover your lost belongings across campus.
-            </p>
+            <h1>Report Found Item</h1>
+            <p>Help students identify and claim found belongings.</p>
           </div>
 
-          <form
-            className="report-form"
-            onSubmit={handleSubmit}
-          >
+          <form className="report-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Item Name</label>
               <input
@@ -73,7 +64,6 @@ function ReportLost({ setItems }) {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                placeholder="Enter item name"
                 required
               />
             </div>
@@ -85,7 +75,6 @@ function ReportLost({ setItems }) {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                placeholder="Electronics, Documents, Accessories..."
                 required
               />
             </div>
@@ -97,33 +86,22 @@ function ReportLost({ setItems }) {
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                placeholder="Where did you lose it?"
                 required
               />
             </div>
 
             <div className="form-group">
               <label>Upload Image</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-              />
+              <input type="file" accept="image/*" onChange={handleImageChange} />
             </div>
 
             {image && (
               <div className="image-preview">
-                <img
-                  src={image}
-                  alt="Preview"
-                />
+                <img src={image} alt="preview" />
               </div>
             )}
 
-            <button
-              type="submit"
-              className="submit-btn"
-            >
+            <button type="submit" className="submit-btn">
               Submit Report
             </button>
           </form>
@@ -133,4 +111,4 @@ function ReportLost({ setItems }) {
   );
 }
 
-export default ReportLost;
+export default ReportFound;

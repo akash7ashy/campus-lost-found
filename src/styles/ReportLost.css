@@ -1,0 +1,91 @@
+body {
+  background: #f4efe6;
+}
+
+.report-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0;
+}
+
+.report-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.report-header {
+  background: #2f5d50;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.report-header h1 {
+  margin: 0;
+}
+
+.report-header p {
+  margin-top: 10px;
+}
+
+.report-form {
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5c4033;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  color: #222;
+  background: white;
+  border: 2px solid #d8c7b7;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2f5d50;
+}
+
+.image-preview {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.image-preview img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #2f5d50;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2f5d50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #24483d;
+}
