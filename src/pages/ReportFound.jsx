@@ -28,22 +28,44 @@ function ReportFound({ setItems }) {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const newItem = {
-      id: Date.now(),
-      title: formData.title,
-      category: formData.category,
-      location: formData.location,
-      status: "Found",
-      image: image || "https://via.placeholder.com/300x200?text=No+Image",
-    };
+  const newItem = {
+    id: Date.now(),
+    title: formData.title,
+    category: formData.category,
+    location: formData.location,
+    status: "Found",
+    image:
+      image ||
+      "https://via.placeholder.com/300x200?text=No+Image",
+  };
 
-    setItems((prev) => [...prev, newItem]);
+  try {
+    const response = await fetch(
+      "http://localhost:5000/items",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      }
+    );
+
+    const data = await response.json();
+
+    console.log("Server Response:", data);
+
+    // Keep updating React state for now
+    setItems((prevItems) => [...prevItems, newItem]);
 
     navigate("/home");
-  };
+  } catch (error) {
+    console.error("Error sending item:", error);
+  }
+};
 
   return (
     <>
