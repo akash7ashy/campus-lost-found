@@ -3,9 +3,10 @@
 ========================== */
 
 .home-container {
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   background: #F8F5F2;
   padding: 40px 60px;
+  box-sizing: border-box;
 }
 
 /* ==========================
