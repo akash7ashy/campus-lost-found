@@ -1,20 +1,23 @@
 import { useState } from "react";
 import "../styles/Login.css";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    console.log({
-      email,
-      password,
-    });
+  console.log({
+    email,
+    password,
+  });
 
-    // Backend API call will be added later
-  };
+  navigate("/home");
+};
 
   return (
     <div className="login-container">
@@ -77,7 +80,7 @@ function Login() {
           </form>
 
           <p className="register-link">
-            Don't have an account? <a href="#">Register</a>
+         Don't have an account? <Link to="/register">Register</Link>
           </p>
         </div>
       </div>
