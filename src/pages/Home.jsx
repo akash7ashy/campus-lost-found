@@ -47,12 +47,14 @@ function Home({ items }) {
           <div className="item-grid">
             {items.map((item) => (
               <ItemCard
-                key={item.id}
+                key={item._id}
                 title={item.title}
                 category={item.category}
                 location={item.location}
                 status={item.status}
                 image={item.image}
+                email={item.email}
+                mobile={item.mobile}
               />
             ))}
           </div>

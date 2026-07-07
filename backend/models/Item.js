@@ -6,6 +6,8 @@ const itemSchema = new mongoose.Schema({
   location: String,
   status: String,
   image: String,
+  email: String,
+  mobile: String,
 });
 
 module.exports = mongoose.model("Item", itemSchema);
