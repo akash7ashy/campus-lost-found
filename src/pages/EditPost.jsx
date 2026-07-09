@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/ReportLost.css";
-
+import API_URL from "../config";
 function EditPost() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ function EditPost() {
   const fetchItem = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/items"
+        `${API_URL}/items`
       );
 
       const data =
@@ -127,7 +127,7 @@ function EditPost() {
 
       const response =
         await fetch(
-          `http://localhost:5000/items/${id}`,
+          `${API_URL}/items/${id}`,
           {
             method: "PUT",
             headers: {

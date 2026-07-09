@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-
+import API_URL from "../config";
 import "../styles/ReportLost.css";
 
 
@@ -54,7 +54,7 @@ function ReportLost({ setItems }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/items",
+        `${API_URL}/items`,
         {
           method: "POST",
            headers: {

@@ -13,13 +13,14 @@ import EditPost from "./pages/EditPost";
 import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminRoute from "./components/AdminRoute";
+import API_URL from "./config";
 //import lostItems from "./data/lostItems";
 
 function App() {
   //const [items, setItems] = useState(lostItems);
   const [items, setItems] = useState([]);
   useEffect(() => {
-  fetch("http://localhost:5000/items")
+  fetch(`${API_URL}/items`)
     .then((res) => res.json())
     .then((data) => setItems(data))
     .catch((error) =>

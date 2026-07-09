@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Profile.css";
+import API_URL from "../config";
 import {
   BarChart,
   Bar,
@@ -52,7 +53,7 @@ const chartData = [
       setUser(loggedUser);
 
       const response = await fetch(
-        "http://localhost:5000/items"
+        `${API_URL}/items`
       );
 
       const items = await response.json();

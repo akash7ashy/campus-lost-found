@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/AdminDashboard.css";
-
+import API_URL from "../config";
 function AdminDashboard() {
   const [stats, setStats] = useState({
     totalUsers: 0,
@@ -23,7 +23,7 @@ function AdminDashboard() {
               localStorage.getItem("token");
 
             const usersResponse = await fetch(
-              "http://localhost:5000/users",
+               `${API_URL}/users`,
               {
                 headers: {
                   Authorization:
@@ -37,7 +37,7 @@ function AdminDashboard() {
       setUsers(users);
 
       const itemsResponse = await fetch(
-        "http://localhost:5000/items"
+        `${API_URL}/items`
       );
 
       const items =
@@ -78,7 +78,7 @@ function AdminDashboard() {
             localStorage.getItem("token");
 
           await fetch(
-            `http://localhost:5000/users/${userId}/make-admin`,
+            `${API_URL}/users/${userId}/make-admin`,
             {
               method: "PUT",
               headers: {
@@ -113,7 +113,7 @@ const handleDeleteUser =
         return;
 
       await fetch(
-        `http://localhost:5000/users/${userId}`,
+        `${API_URL}/users/${userId}`,
         {
           method: "DELETE",
           headers: {
@@ -144,7 +144,7 @@ const handleDeleteUser =
     if (!confirmDelete) return;
 
     await fetch(
-      `http://localhost:5000/items/${postId}`,
+      `${API_URL}/items/${postId}`,
       {
         method: "DELETE",
         headers: {
@@ -168,7 +168,7 @@ const handleResolvePost =
         localStorage.getItem("token");
 
       await fetch(
-        `http://localhost:5000/items/${postId}/resolve`,
+        `${API_URL}/items/${postId}/resolve`,
         {
           method: "PUT",
           headers: {

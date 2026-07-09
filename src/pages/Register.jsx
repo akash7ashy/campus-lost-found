@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Register.css";
 import { Link } from "react-router-dom";
+import API_URL from "../config";
 function Register() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -26,7 +27,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/register",
+      `${API_URL}/register`,
       {
         method: "POST",
         headers: {

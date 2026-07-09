@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import ItemCard from "../components/ItemCard";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
-
+import API_URL from "../config";
 function MyPosts() {
   const [myItems, setMyItems] = useState([]);
 
@@ -18,7 +18,7 @@ function MyPosts() {
       );
 
       const response = await fetch(
-        "http://localhost:5000/items"
+        `${API_URL}/items`
       );
 
       const data = await response.json();
@@ -45,7 +45,7 @@ function MyPosts() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/items/${id}`,
+        `${API_URL}/items/${id}`,
         {
           method: "DELETE",
           headers: {
