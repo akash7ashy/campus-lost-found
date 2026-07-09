@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 
 import "../styles/ReportLost.css";
 
+
 function ReportLost({ setItems }) {
   const navigate = useNavigate();
 
@@ -36,6 +37,7 @@ function ReportLost({ setItems }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
 
     const form = new FormData();
 
@@ -55,6 +57,9 @@ function ReportLost({ setItems }) {
         "http://localhost:5000/items",
         {
           method: "POST",
+           headers: {
+        Authorization: `Bearer ${token}`,
+      },
           body: form,
         }
       );

@@ -35,7 +35,7 @@ function ReportFound({ setItems }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const token = localStorage.getItem("token");
     const form = new FormData();
 
     form.append("title", formData.title);
@@ -54,6 +54,9 @@ function ReportFound({ setItems }) {
         "http://localhost:5000/items",
         {
           method: "POST",
+          headers: {
+        Authorization: `Bearer ${token}`,
+      },
           body: form,
         }
       );

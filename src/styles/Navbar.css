@@ -62,6 +62,20 @@
   background: #447a70;
 }
 
+.navbar-profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #558E81;
+  color: white;
+  border-radius: 8px;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 768px) {

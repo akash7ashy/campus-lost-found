@@ -8,15 +8,49 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
-  console.log({
-    email,
-    password,
-  });
+  try {
+    const response = await fetch(
+      "http://localhost:5000/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
 
-  navigate("/home");
+    const data = await response.json();
+
+    console.log(data);
+
+    if (response.ok) {
+      // Save JWT token
+      localStorage.setItem("token", data.token);
+
+      // Save user details (optional but useful)
+      localStorage.setItem(
+        "user",
+        JSON.stringify(data.user)
+      );
+
+    //  alert("Login Successful");
+
+      navigate("/home");
+    } else {
+      alert(data.message);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Server Error");
+  }
 };
 
   return (

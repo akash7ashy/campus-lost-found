@@ -44,11 +44,13 @@ function ItemCard({
 
 
         <span
-          className={
+          className={`status ${
             status === "Lost"
-              ? "status lost"
-              : "status found"
-          }
+              ? "lost"
+              : status === "Found"
+              ? "found"
+              : "resolved"
+          }`}
         >
           {status}
         </span>
